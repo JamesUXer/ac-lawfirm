@@ -1,0 +1,276 @@
+[
+  {
+    "slug": "estate-planning",
+    "label": "Estate Planning",
+    "tagline": "Plan for your family’s future",
+    "title": "Plan for ",
+    "emphasis": "your family's future.",
+    "intro": "Estate planning is about more than deciding what happens to your assets after your death.",
+    "criteria": [
+      "You are creating your first estate plan.",
+      "Your family or financial circumstances have changed.",
+      "You want to plan for future financial and healthcare decisions.",
+      "You want to review documents prepared years ago."
+    ],
+    "source": "710:7003",
+    "kind": "detailed",
+    "glance": [
+      "Wills",
+      "Trusts",
+      "Powers of attorney",
+      "Medical directives"
+    ],
+    "coverageTitle": "What estate planning includes",
+    "coverage": [
+      [
+        "Wills",
+        "Direct certain asset distributions and nominate trusted people."
+      ],
+      [
+        "Trusts",
+        "Manage and transfer assets during life and after death."
+      ],
+      [
+        "Powers of attorney",
+        "Designate someone to assist with financial and legal matters."
+      ],
+      [
+        "Medical directives",
+        "Record healthcare wishes and designate a decision-maker."
+      ]
+    ],
+    "iconIndex": 0,
+    "formatSource": "343:2007 / 455:1715",
+    "contentSource": {
+      "document": "Website Article Pages  (1).pdf",
+      "pages": [
+        1,
+        2,
+        3
+      ],
+      "status": "Working copy adapted from supplied PDF; subject to later review."
+    }
+  },
+  {
+    "slug": "probate-trusts",
+    "label": "Probate & Trusts",
+    "tagline": "Settle an estate with confidence",
+    "title": "Deal with an estate ",
+    "emphasis": "after a loss.",
+    "intro": "AC Law Firm provides guidance throughout probate and trust administration.",
+    "criteria": [
+      "You need to determine whether probate is necessary.",
+      "You have responsibilities as a Personal Representative.",
+      "You are responsible for administering a trust.",
+      "You need help with fiduciary records or accountings."
+    ],
+    "source": "710:7203",
+    "kind": "detailed",
+    "glance": [
+      "Estate administration",
+      "Personal Representatives",
+      "Trust administration",
+      "Fiduciary accountings"
+    ],
+    "coverageTitle": "What probate & trusts includes",
+    "coverage": [
+      [
+        "Estate administration",
+        "Identify assets, address obligations and distribute estate property."
+      ],
+      [
+        "Personal Representatives",
+        "Understand estate duties, required filings and records."
+      ],
+      [
+        "Trust administration",
+        "Review trust documents and support trustee responsibilities."
+      ],
+      [
+        "Fiduciary accountings",
+        "Organise financial activity and prepare or review accountings."
+      ]
+    ],
+    "iconIndex": 1,
+    "formatSource": "343:2007 / 455:1715",
+    "contentSource": {
+      "document": "Website Article Pages  (1).pdf",
+      "pages": [
+        4,
+        5,
+        6,
+        7
+      ],
+      "status": "Working copy adapted from supplied PDF; subject to later review."
+    }
+  },
+  {
+    "slug": "guardianships",
+    "label": "Guardianships",
+    "tagline": "Protect a loved one who needs help",
+    "title": "Protect someone ",
+    "emphasis": "who needs support.",
+    "intro": "When an individual is unable to make certain personal, medical, or financial decisions independently, a guardianship may provide the legal authority necessary for another person to act on their behalf.",
+    "criteria": [
+      "Someone needs support with personal, medical or financial decisions.",
+      "You need to understand whether a less restrictive alternative is available.",
+      "You are considering a guardianship petition.",
+      "You need help understanding responsibilities after appointment."
+    ],
+    "source": "710:7503",
+    "kind": "detailed",
+    "iconIndex": 2,
+    "coverage": [
+      [
+        "Guardianship petitions",
+        "Guidance on petitions and appointment proceedings."
+      ],
+      [
+        "Personal decisions",
+        "Guardianship relating to healthcare, care and living arrangements."
+      ],
+      [
+        "Property and finances",
+        "Guidance on managing assets, income, expenses and financial matters."
+      ],
+      [
+        "Ongoing responsibilities",
+        "Help with court filings, reporting, records and fiduciary obligations."
+      ]
+    ],
+    "coverageTitle": "What guardianship support includes",
+    "glance": [
+      "Guardianship petitions",
+      "Personal decisions",
+      "Property and finances",
+      "Court reporting"
+    ],
+    "formatSource": "343:2007 / 455:1715",
+    "contentSource": {
+      "document": "Website Article Pages  (1).pdf",
+      "pages": [
+        14,
+        15,
+        16
+      ],
+      "status": "Working copy adapted from supplied PDF; subject to later review."
+    }
+  },
+  {
+    "slug": "business-trademarks",
+    "label": "Business & Trademarks",
+    "tagline": "Start and protect your business and brand",
+    "title": "Protect ",
+    "emphasis": "your business and brand.",
+    "intro": "Building a business involves more than developing a great idea.",
+    "criteria": [
+      "You are choosing a legal structure for a business.",
+      "You need formation documents, operating agreements or business contracts.",
+      "You want to assess trademark protection for a name or brand.",
+      "Your business is changing, growing or restructuring."
+    ],
+    "source": "710:7610",
+    "kind": "detailed",
+    "iconIndex": 3,
+    "coverage": [
+      [
+        "Business formation",
+        "Entity selection, formation and organisational documents."
+      ],
+      [
+        "Business agreements",
+        "Operating agreements, contracts and ownership considerations."
+      ],
+      [
+        "Trademark protection",
+        "Strategy, preliminary searches and federal applications."
+      ],
+      [
+        "Trademark maintenance",
+        "Renewals, ownership changes and portfolio guidance."
+      ]
+    ],
+    "coverageTitle": "What business & trademark services include",
+    "glance": [
+      "Business formation",
+      "Business agreements",
+      "Trademark protection",
+      "Trademark maintenance"
+    ],
+    "formatSource": "343:2007 / 455:1715",
+    "contentSource": {
+      "document": "Website Article Pages  (1).pdf",
+      "pages": [
+        8,
+        9,
+        10
+      ],
+      "status": "Working copy adapted from supplied PDF; subject to later review."
+    }
+  },
+  {
+    "slug": "marital-agreements",
+    "label": "Marital Agreements",
+    "tagline": "Protect your assets before or during marriage",
+    "title": "Protect assets ",
+    "emphasis": "within marriage.",
+    "intro": "Conversations about finances, property, and future responsibilities are an important part of planning a life together.",
+    "criteria": [
+      "You are considering a prenuptial agreement before marriage.",
+      "You want to consider a postnuptial agreement during marriage.",
+      "You want to clarify property, debts or other financial responsibilities.",
+      "You need to coordinate a marital agreement with estate planning."
+    ],
+    "source": "710:7717",
+    "kind": "detailed",
+    "iconIndex": 4,
+    "coverage": [
+      [
+        "Prenuptial agreements",
+        "Financial and property arrangements before marriage."
+      ],
+      [
+        "Postnuptial agreements",
+        "Agreements about financial matters during marriage."
+      ],
+      [
+        "Property and obligations",
+        "Consideration of assets, business interests, debts and inheritances."
+      ],
+      [
+        "Estate planning coordination",
+        "Consider how a marital agreement and estate plan interact."
+      ]
+    ],
+    "coverageTitle": "What marital agreements include",
+    "glance": [
+      "Prenuptial agreements",
+      "Postnuptial agreements",
+      "Property and obligations",
+      "Estate plan coordination"
+    ],
+    "formatSource": "343:2007 / 455:1715",
+    "contentSource": {
+      "document": "Website Article Pages  (1).pdf",
+      "pages": [
+        11,
+        12,
+        13
+      ],
+      "status": "Working copy adapted from supplied PDF; subject to later review."
+    }
+  },
+  {
+    "slug": "not-sure",
+    "label": "Not sure where to start?",
+    "tagline": "Find the right legal service for your situation",
+    "title": "Not sure where you need to start?",
+    "emphasis": "",
+    "intro": "Legal situations can feel confusing, but you don't have to guess. We'll help you explore your circumstances and recommend the safest path forward.",
+    "criteria": [],
+    "source": "710:7395",
+    "kind": "unsure",
+    "iconIndex": 5,
+    "formatSource": "595:2685"
+  }
+]

@@ -1,0 +1,49 @@
+/* About / Harmonised v1 710:6804, using the established Home tokens. */
+.about-hero{height:600px;background:linear-gradient(90deg,var(--cream) 55%,var(--navy))}
+.about-hero-inner{height:100%;position:relative;display:flex;align-items:center;padding-block:40px 80px}
+.about-hero-copy{position:relative;z-index:1;width:620px;display:flex;flex-direction:column;align-items:flex-start;gap:32px}
+.about-hero .breadcrumbs{padding-block:24px;font:500 16px/24px var(--sans)}
+.about-hero .breadcrumbs a{text-decoration:underline;text-underline-offset:3px}
+.about-hero h1{font-size:80px;line-height:72px}
+.about-role{margin-top:12px;font:italic 400 24px/1.4 var(--serif);color:var(--gold)}
+.about-introduction{font:400 18px/28px var(--sans)}
+.about-hero .hero-actions{gap:16px;flex-wrap:wrap}
+.about-portrait{position:absolute;right:23px;bottom:0;width:432.667px;height:649px;object-fit:cover;pointer-events:none}
+.biography{display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:80px;padding-block:var(--section-top) var(--section-bottom)}
+.biography-copy{display:flex;flex-direction:column;gap:48px;min-width:0}
+.biography-copy section{display:flex;flex-direction:column;gap:20px}
+.biography-intro{display:flex;flex-direction:column;gap:24px}
+.biography-intro .eyebrow{color:var(--gold);margin-bottom:12px}
+.biography h2{font-size:38px;line-height:48px}
+.biography-intro>p{font:500 18px/30px var(--sans)}
+.biography h3{font-size:24px;line-height:normal}
+.biography-copy section p{font:400 16px/28px var(--sans);color:var(--secondary)}
+.about-admissions{padding:24px;display:flex;flex-direction:column;gap:20px}
+.about-admissions h2{font-size:22px;line-height:normal}
+.admissions-rule{max-width:100%}
+.about-admissions ul{list-style:none;padding:0;display:flex;flex-direction:column;gap:4px;font:400 16px/24px var(--sans)}
+.about-admissions li{display:flex;align-items:center;gap:12px;padding-block:8px}
+.about-admissions li img{flex:none}
+.biography-sidebar .service-outer{padding:20px}
+.biography-sidebar .service-card{padding:20px;min-height:210px}
+.biography-sidebar .service-card h3{font-size:28px;line-height:42px}
+.about-quote{padding-block:40px 80px;background:radial-gradient(ellipse at center,#143d434d,var(--navy) 80%),var(--navy);color:var(--offwhite);text-align:center}
+.about-quote>.container{max-width:1000px;display:flex;flex-direction:column;align-items:center;gap:32px}
+.quote-mark{font:700 96px/normal var(--serif);color:var(--gold)}
+.about-quote figure,.about-quote blockquote{margin:0}
+.about-quote figure{max-width:900px;display:flex;flex-direction:column;gap:32px}
+.about-quote blockquote{font:400 32px/52px var(--serif)}
+.about-quote figcaption{display:flex;flex-direction:column;align-items:center;gap:24px;font:500 22px/normal var(--serif);color:var(--gold)}
+.about-quote .quote-role{font:600 14px/normal var(--sans);color:var(--offwhite);opacity:.6;letter-spacing:1px;text-transform:uppercase}
+.about-contact{border-top:1px solid var(--gold);padding-block:40px 80px}
+.about-contact>.container{display:flex;align-items:center;justify-content:space-between;gap:32px}
+.about-contact>.container>div{max-width:680px;display:flex;flex-direction:column;gap:12px}
+.about-contact h2{font-size:32px;line-height:normal}
+.about-contact p{font:400 16px/26px var(--sans);color:var(--secondary)}
+.about-contact .button{flex:none}
+
+@media(min-width:1281px){.about-hero{background:linear-gradient(90deg,var(--cream) calc(50% + 64px),var(--navy))}}
+@media(max-width:1279px){.about-hero{height:auto;min-height:600px}.about-hero-inner{min-height:600px}.about-hero-copy{width:58%}.about-hero h1{font-size:clamp(56px,6.25vw,80px);line-height:.95}.about-portrait{right:0;width:40%;height:auto}.biography{grid-template-columns:minmax(0,1fr) 300px;gap:48px}.about-contact>.container>div{max-width:62%}}
+@media(max-width:1000px){.about-hero-copy{width:59%}.about-hero .hero-actions{flex-direction:column;align-items:flex-start}.about-hero-inner{padding-top:32px;padding-bottom:56px}.biography{grid-template-columns:minmax(0,1fr) 260px;gap:32px}.about-admissions{padding:16px}.biography-sidebar .service-outer{padding:16px}.biography-sidebar .service-card{padding:16px}.biography h2{font-size:34px;line-height:44px}.about-admissions h2{font-size:22px;line-height:normal}}
+@media(max-width:800px){.about-hero{background:var(--cream);min-height:0}.about-hero-inner{width:100%;min-height:0;display:flex;flex-direction:column;padding:0}.about-hero-copy{width:100%;padding:32px var(--gutter) 40px;gap:24px}.about-hero .breadcrumbs{padding:0}.about-hero h1{font-size:60px;line-height:60px}.about-hero .hero-actions{flex-direction:row;align-items:stretch}.about-portrait{position:relative;right:auto;bottom:auto;width:min(100%,380px);height:auto;z-index:1}.about-hero-inner:after{content:'';position:absolute;bottom:0;left:0;right:0;height:40%;background:linear-gradient(90deg,var(--cream),var(--navy))}.biography{grid-template-columns:1fr;gap:40px}.biography-sidebar{display:grid;grid-template-columns:1fr 1fr;align-items:start;gap:24px}.about-admissions,.biography-sidebar .service-outer{padding:0}.biography-sidebar .service-card{padding:20px}.about-quote{padding-block:40px 56px}.about-quote blockquote{font-size:28px;line-height:44px}.about-contact{padding-bottom:56px}.about-contact>.container{align-items:flex-start;flex-direction:column}.about-contact>.container>div{max-width:100%}}
+@media(max-width:600px){.about-hero h1{font-size:52px;line-height:52px}.about-hero .hero-actions{flex-direction:column;width:100%}.about-hero .button{width:100%}.biography-copy{gap:40px}.biography h2{font-size:32px;line-height:40px}.biography-sidebar{grid-template-columns:1fr;gap:32px}.about-admissions h2{font-size:22px;line-height:normal}.biography-sidebar .service-outer{max-width:360px;width:100%}.about-quote blockquote{font-size:26px;line-height:40px}.about-quote .quote-role{font-size:12px}.about-contact .button{max-width:100%}}

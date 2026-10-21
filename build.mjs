@@ -1,0 +1,78 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import {serviceTemplates} from './service-templates.mjs';
+import {aboutTemplate} from './about-template.mjs';
+import {consultationTemplate} from './consultation-template.mjs';
+const root = import.meta.dirname;
+const articles = JSON.parse(fs.readFileSync(path.join(root,'data/articles.json')));
+const resourceMetadata = JSON.parse(fs.readFileSync(path.join(root,'data/resources.json')));
+const site = JSON.parse(fs.readFileSync(path.join(root,'data/site.json')));
+const about=JSON.parse(fs.readFileSync(path.join(root,'data/about.json')));
+const services=JSON.parse(fs.readFileSync(path.join(root,'data/services.json')));
+const esc = s => String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const resources=resourceMetadata.map(meta=>{
+ const article=articles.find(a=>a.title===meta.articleTitle);
+ if(!article)throw new Error('Missing source content: '+meta.articleTitle);
+ return {...article,...meta,category:services[meta.iconIndex].label};
+});
+const featuredResources=resources.filter(a=>a.featured);
+const asset=(name,attrs='')=>`<img src="/assets/${name}" ${attrs}>`;
+const icon=i=>i===1?`<span class="practice-icon probate">${asset('home-imgGroup.svg','alt=""')}${asset('home-imgEllipse1.svg','alt=""')}</span>`:i===2?`<span class="practice-icon guardians">${asset('home-imgGroup1.svg','alt=""')}${asset('home-imgFrame1000007421.svg','alt=""')}</span>`:asset(['hub-imgHomeSourceIconEstate.svg','hub-imgPracticeIcon.svg','','hub-imgPracticeIcon1.svg','hub-imgPracticeIcon2.svg','home-imgHomeSourceIconUnsure.svg'][i],'class="practice-icon" width="40" height="40" alt=""');
+const primary=()=>`<a class="button primary" href="/consultation/">${site.formDeliveryVerified?'Request a consultation →':site.formDeliveryTest?'Consultation test →':'Consultation preview →'}</a>`;
+const secondary=(label,href)=>`<a class="button secondary" href="${href}">${label}</a>`;
+const nav=active=>`<a class="skip" href="#main">Skip to content</a><header class="site-header"><div class="container nav-inner"><a class="logo" href="/" aria-label="AC Law Firm, Home">${asset('home-imgGroup6.svg','width="41.7239" height="27.288" alt="AC"')}</a><button class="menu-toggle" aria-controls="primary-nav" aria-expanded="false">Menu <span aria-hidden="true">☰</span></button><nav id="primary-nav" aria-label="Main navigation">${serviceUI.menu()}<a href="/about/" ${active==='about'?'aria-current="page"':''}>About</a><a href="/resources/" ${active==='resources'?'aria-current="page"':''}>Resources</a><a href="/#seminar">Seminar</a>${primary()}</nav></div></header>`;
+const footer=()=>`<footer class="site-footer"><div class="container footer-grid"><div><h2>AC Law Firm</h2><p>Legal guidance for family, assets, business and future.</p></div><div><h2><a href="/#services">Services</a></h2>${services.slice(0,5).map(x=>`<a href="/services/${x.slug}/">${esc(x.label)}</a>`).join('')}</div><div><h2>Explore</h2><a href="/about/">About Amber</a><a href="/resources/">Resources</a></div><div><h2>Contact</h2><a href="mailto:${esc(site.contactEmail)}">${esc(site.contactEmail)}</a><p class="footer-jurisdictions">Licensed to practice in District of Columbia and Maryland.</p></div></div></footer>`;
+const banner=()=>`<section class="consult-banner container"><h2>Not sure which legal service applies?</h2><p>Describe your situation in a short enquiry. Amber can confirm whether the firm is able to help and explain what happens next.</p>${primary()}</section>`;
+const shell=(title,body,active='',description='Legal guidance for family, assets, business and future.')=>`<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex,nofollow"><meta name="description" content="${esc(description)}"><title>${esc(title)} | AC Law Firm</title><link rel="preload" href="/assets/eb-garamond.ttf" as="font" type="font/ttf" crossorigin><link rel="preload" href="/assets/inter-v3.woff2" as="font" type="font/woff2" crossorigin><link rel="stylesheet" href="/styles.css"><link rel="stylesheet" href="/services.css">${active==='about'?'<link rel="stylesheet" href="/about.css">':''}${active==='consultation'?'<link rel="stylesheet" href="/consultation.css">':''}<script src="/app.js" defer></script></head><body>${nav(active)}<main id="main">${body}</main>${footer()}</body></html>`;
+const label=t=>`<p class="eyebrow underlined">${t}</p>`;
+function processMarkup(){
+ const steps=[['Send a short enquiry','Tell Amber what you need help with.'],['Review','Amber reviews your enquiry to confirm whether the firm can help.'],['Agree the next step','If Amber can help, agree how to proceed.']];
+ return `${label('What happens next')}<h2>What happens when you contact Amber?</h2><ol class="process-grid">${steps.map((step,i)=>`<li><span class="step-number">${i+1}.</span><h3>${step[0]}</h3><p>${step[1]}</p>${i<2?asset(i?'home-imgArrow111.svg':'home-imgArrow110.svg','class="process-arrow" width="80" height="24" alt=""'):''}</li>`).join('')}</ol>`;
+}
+const serviceUI=serviceTemplates({asset,esc,label,primary,secondary,banner,services,icon,processMarkup});
+const practiceStrip=()=>`<div class="practice-strip"><div class="container"><span>Practice Areas:</span>${services.slice(0,5).map((x,i)=>`<a href="/services/${x.slug}/">${icon(i)}<span>${esc(x.label)}</span></a>`).join('')}</div></div>`;
+const home=()=>{
+ const serviceTitles=['Plan for your family’s future','Deal with an estate after a loss','Protect someone who needs support','Protect your business and brand','Protect assets within marriage','Not sure where to start?'];
+ return `<section class="home-hero"><div class="container hero-inner"><div class="hero-copy"><h1>Legal guidance to protect <em>your family, assets, business and future.</em></h1>${asset('home-imgVector4.svg','class="hero-rule" width="502" height="3" alt=""')}<p>Clear, practical support for planning ahead, managing responsibilities after a loss, protecting vulnerable people and safeguarding what you have built.</p><div class="hero-actions">${primary()}${secondary('Find the right legal service →','#services')}</div></div>${asset('home-imgHeroImage.png','class="hero-portrait" width="520" height="780" alt="Amber, attorney at AC Law Firm" fetchpriority="high"')}</div></section>${practiceStrip()}
+ <section id="services" class="container services home-section">${label('Our services')}<h2>What do you need help with?</h2><p class="service-intro">Choose the situation that best matches what you’re dealing with:</p><div class="service-grid">${serviceTitles.map((t,i)=>`<a class="service-outer" href="/services/${services[i].slug}/"><div class="service-card">${icon(i)}<h3><span>${t}</span><span aria-hidden="true">→</span></h3><hr></div></a>`).join('')}</div></section>
+ <section id="about" class="about home-section"><div class="about-photo">${asset('home-imgOfficeSettingPhoto1.png','alt="Amber seated in her office" loading="lazy"')}</div><div class="container about-inner">${label('About Amber')}<div class="about-copy"><h2><em>“Measured Judgement. Trusted Counsel. Exceptional Client Service.”</em></h2><ul class="credentials"><li>Licensed to practice in District of Columbia and Maryland</li><li>Florida International University College of Law J.D</li><li>Clear, direct communication</li><li>Services tailored to the client’s situation</li></ul>${secondary('Learn more about Amber →','/about/')}</div></div></section>
+ <section id="confidence" class="container confidence home-section">${label('Why clients can feel confident')}<div class="trust-row">${asset('home-imgImage1.png','width="100" height="100" alt="American Bar Association" loading="lazy"')}<div class="experience"><span>+5</span><p>years practising law</p></div>${asset('home-imgImage2.png','width="162" height="100" alt="FIU Law" loading="lazy"')}</div></section>
+ <section class="process home-section"><div class="container">${processMarkup()}${primary()}</div></section>
+ <section class="guidance home-section"><div class="container">${label('Practical guidance')}<div class="guidance-grid"><div><h2>Understand your options before making contact</h2><p>Read about probate, trust administration and protecting your business.</p><a class="back-link" href="/resources/">View all resources →</a></div><div class="guidance-links">${featuredResources.map(a=>`<a href="/resources/${a.slug}/"><h3>${esc(a.subtitle)}</h3><p>${esc(a.summary)}</p><span class="read-link">Read resource <span aria-hidden="true">→</span></span></a>`).join('')}</div></div></div></section><section id="seminar" class="seminar home-section"><div class="container">${label('Seminars')}<div class="seminar-copy"><h2>Are you planning a legal event?</h2><p>If you’re organising a legal event, contact Amber to discuss the topic and audience you have in mind. Together, you can explore how she could contribute to the event.</p><a class="button secondary" href="mailto:${esc(site.contactEmail)}?subject=Speaking%20enquiry">Discuss your event →</a></div></div></section><div id="consultation">${banner()}</div>`;
+};
+const hubPage=()=>`<section class="interior-hero"><div class="container"><nav aria-label="Breadcrumb" class="breadcrumbs"><a href="/">Home</a> &gt; <span aria-current="page">Resources</span></nav><h1>Resources</h1><p>Practical guidance on planning ahead, managing responsibilities and protecting what matters.</p><form id="resource-search" role="search"><label class="sr-only" for="query">Search resources</label><input type="search" id="query" name="q" placeholder="Search resources"><button class="button primary" type="submit">Search →</button></form></div></section><section class="container library"><div class="topics" role="group" aria-label="Filter by practice area">${['All',...new Set(resources.map(x=>x.category))].map(t=>`<button class="topic" data-topic="${esc(t)}" aria-pressed="${t==='All'}">${esc(t)}</button>`).join('')}</div><div class="results-heading"><h2 id="results-title">All resources</h2><p id="results-count" aria-live="polite" aria-atomic="true">${resources.length} resources</p></div><div class="resource-grid">${resources.map(a=>`<article class="resource-card" data-category="${esc(a.category)}" data-search="${esc([a.title,a.subtitle,a.summary,...a.intro.map(b=>b.text),...a.sections.flatMap(s=>[s.heading,...s.blocks.map(b=>b.text)])].join(' '))}"><div class="card-content"><p class="category">${icon(a.iconIndex)}<span>${esc(a.category)}</span></p><h3><a href="/resources/${a.slug}/">${esc(a.subtitle)}</a></h3><p>${esc(a.summary)}</p></div><a class="read-link" href="/resources/${a.slug}/">Read resource <span aria-hidden="true">→</span><span class="sr-only">: ${esc(a.subtitle)}</span></a></article>`).join('')}</div><div class="empty-results" hidden><h3>No resources found</h3><p>Try another word or choose a different practice area.</p><button class="button secondary" id="reset-search">Clear search and filters</button></div></section>${banner()}`;
+const slug=s=>s.toLowerCase().replace(/[^a-z0-9\s-]/g,'').trim().replace(/\s+/g,'-');
+const blocks=items=>{let out='',list=false;for(const b of items){if(b.kind==='bullet'){if(!list){out+='<ul>';list=true;}out+=`<li>${esc(b.text)}</li>`;}else{if(list){out+='</ul>';list=false;}out+=b.kind==='strong'?`<p><strong>${esc(b.text)}</strong></p>`:`<p>${esc(b.text)}</p>`;}}return out+(list?'</ul>':'');};
+const resourcePage=a=>`<section class="interior-hero resource-hero"><div class="container"><nav aria-label="Breadcrumb" class="breadcrumbs"><a href="/">Home</a> &gt; <a href="/resources/">Resources</a> &gt; <span aria-current="page">${esc(a.title)}</span></nav><p class="eyebrow">${esc(a.title)}</p><h1>${esc(a.subtitle)}</h1></div></section><div class="container resource-layout"><article class="resource-body"><div class="article-intro">${blocks(a.intro)}</div>${a.sections.map(s=>`<section id="${slug(s.heading)}"><h2>${esc(s.heading)}</h2>${blocks(s.blocks)}</section>`).join('')}<a class="back-link" href="/resources/">← Back to resources</a></article><aside class="contents"><details open><summary>In this resource</summary><nav aria-label="Resource contents">${a.sections.map(s=>`<a href="#${slug(s.heading)}">${esc(s.heading)}</a>`).join('')}</nav></details></aside></div>${banner()}`;
+const aboutPage=()=>aboutTemplate({about,asset,esc,primary,secondary,icon,practiceStrip});
+// Document-relative URLs keep the same static output portable between a domain root
+// and a GitHub Pages project path. CSS asset URLs are relative to the CSS files.
+function relativeUrl(route,href){
+ const [,pathname,suffix]=href.match(/^([^?#]*)(.*)$/);
+ const from=route||'.',target=pathname.slice(1)||'.';
+ let relative=path.posix.relative(from,target)||'.';
+ if(pathname.endsWith('/')&&!relative.endsWith('/'))relative+='/';
+ return relative+suffix;
+}
+function write(route,html){
+ const destination=path.join(root,'dist',route,'index.html');
+ fs.mkdirSync(path.dirname(destination),{recursive:true});
+ const portable=html.replace(/\b(href|src)="(\/(?!\/)[^"]*)"/g,(_,attribute,href)=>`${attribute}="${relativeUrl(route,href)}"`);
+ fs.writeFileSync(destination,portable);
+}
+function legacyRedirect(route,target){
+ const relative=relativeUrl(route,target);
+ write(route,`<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Resources | AC Law Firm</title><link rel="canonical" href="${relative}"><script>const target=new URL(${JSON.stringify(relative)},location.href);target.search=location.search;target.hash=location.hash;location.replace(target.href);</script><meta http-equiv="refresh" content="0;url=${relative}"></head><body><p>This resource has moved. <a href="${relative}">Continue to resources</a>.</p></body></html>`);
+}
+write('',shell('Home',home()));
+write('about',shell('About Amber',aboutPage(),'about'));
+write('consultation',shell('Request a consultation',consultationTemplate({site,services,esc,asset,label}),'consultation'));
+write('resources',shell('Resources',hubPage(),'resources','Practical guidance on estate planning, probate, guardianships, business and marital agreements.'));
+resources.forEach(a=>write('resources/'+a.slug,shell(a.title,resourcePage(a),'resources',a.summary)));
+services.forEach(s=>write('services/'+s.slug,shell(s.label,serviceUI.page(s),'services')));
+legacyRedirect('articles','/resources/');
+resources.forEach(a=>legacyRedirect('articles/'+a.slug,'/resources/'+a.slug+'/'));
+fs.rmSync(path.join(root,'dist/hub-data.json'),{force:true});
+// Prevent Jekyll processing when this output is eventually deployed to GitHub Pages.
+fs.writeFileSync(path.join(root,'dist/.nojekyll'),'');
+console.log('Built Home, About, Resources, five complete resources and six service pages.');

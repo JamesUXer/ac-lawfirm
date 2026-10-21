@@ -1,0 +1,45 @@
+.consultation-hero{background:var(--cream);padding-block:40px 80px;border-bottom:1px solid var(--gold)}
+.consultation-hero .breadcrumbs{margin-bottom:24px}
+.consultation-hero .breadcrumbs a{text-decoration:underline;text-underline-offset:3px}
+.consultation-hero-grid{display:grid;grid-template-columns:minmax(0,1fr) 16px 318px;gap:40px;align-items:stretch}
+.consultation-hero-grid>div{display:flex;flex-direction:column;justify-content:space-between;gap:40px}
+.consultation-hero h1{font-size:60px;line-height:92px}
+.consultation-hero-grid>div>p{font:500 20px/30px var(--sans)}
+.consultation-divider{align-self:center}
+.consultation-hero aside{padding:24px;display:flex;flex-direction:column;justify-content:space-between;gap:24px;font:400 18px/27px var(--sans)}
+.consultation-hero aside h2{font:700 16px/24px var(--sans)}
+.enquiry-section{padding-block:40px 80px}
+.enquiry-section>.underlined{margin-top:0}
+.enquiry-section>h2{margin-bottom:24px}
+.form-preview-notice{padding:20px;border:1px solid var(--gold);background:var(--cream);font:400 16px/26px var(--sans);margin-bottom:24px;max-width:719px}
+.form-preview-notice p+p{margin-top:8px}
+.form-preview-notice a,.enquiry-sidebar a{overflow-wrap:anywhere;text-decoration:underline;text-underline-offset:3px}
+.required-note{font:400 16px/24px var(--sans);margin-bottom:20px;color:var(--secondary)}
+.enquiry-layout{display:grid;grid-template-columns:minmax(0,719px) minmax(0,1fr);gap:32px;align-items:start}
+.enquiry-fields{background:var(--offwhite);border:1px solid var(--gold);padding:20px;display:flex;flex-direction:column;gap:16px}
+.enquiry-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.enquiry-field{display:flex;flex-direction:column;gap:16px;min-width:0;font:600 18px/28px var(--sans)}
+.enquiry-field .optional{font-weight:400}
+.enquiry-field input,.enquiry-field select,.enquiry-field textarea{width:100%;min-width:0;border:1px solid var(--gold);border-radius:0;background:var(--page);padding:16px;color:var(--navy);font:400 16px/24px var(--sans)}
+.enquiry-field select{appearance:none;background-image:url('assets/consultation-chevron.svg');background-repeat:no-repeat;background-position:right 16px center;background-size:14px 8px;padding-right:40px;min-height:58px}
+.enquiry-field textarea{resize:vertical;min-height:257px}
+.enquiry-field .field-help{font:400 16px/24px var(--sans);color:var(--secondary);margin-top:-8px}
+.enquiry-field input[aria-invalid=true]{border-color:var(--navy);outline:2px solid var(--navy)}
+.enquiry-submit{display:flex;align-items:flex-start;gap:20px;margin-top:24px}
+.enquiry-submit .button{flex:none}
+.enquiry-submit>p{font:500 14px/24px var(--sans);color:var(--secondary)}
+.enquiry-status{padding:20px;border:1px solid var(--gold);margin-top:24px;background:var(--cream);font:400 16px/26px var(--sans)}
+.enquiry-status[role=alert]{border-color:var(--navy)}
+.enquiry-sidebar{display:flex;flex-direction:column;gap:16px}
+.enquiry-sidebar section,.enquiry-sidebar figure{margin:0;padding:20px;background:var(--cream)}
+.enquiry-sidebar h2{display:table;margin-bottom:24px;border-bottom:1px solid var(--gold);font:500 16px/24px var(--sans);text-transform:uppercase}
+.enquiry-sidebar p{font:400 16px/26px var(--sans)}
+.enquiry-sidebar figure{border:1px solid var(--gold)}
+.enquiry-sidebar blockquote{margin:0;font:italic 500 20px/32px var(--serif)}
+.enquiry-sidebar figcaption{margin-top:24px;font:600 16px/24px var(--sans);color:var(--secondary)}
+.enquiry-section noscript p{padding-top:24px;font:400 18px/28px var(--sans)}
+@media(max-width:1000px){.consultation-hero-grid{grid-template-columns:minmax(0,1fr) 16px 250px;gap:24px}.consultation-hero h1{font-size:52px;line-height:68px}.consultation-hero aside{padding:16px}.enquiry-layout{grid-template-columns:minmax(0,1fr) 220px;gap:24px}.enquiry-row{grid-template-columns:1fr}.enquiry-submit{flex-direction:column}}
+@media(max-width:800px){.consultation-hero{padding-block:32px 56px}.consultation-hero-grid{grid-template-columns:1fr;gap:32px}.consultation-divider{display:none}.consultation-hero aside{padding:24px 0 0;border-top:1px solid var(--gold)}.enquiry-layout{grid-template-columns:1fr;gap:32px}.enquiry-row{grid-template-columns:repeat(2,minmax(0,1fr))}.enquiry-sidebar{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}.enquiry-section{padding-bottom:56px}}
+@media(max-width:600px){.consultation-hero h1{font-size:44px;line-height:56px}.consultation-hero-grid>div>p{font-size:18px;line-height:28px}.enquiry-row,.enquiry-sidebar{grid-template-columns:1fr}.enquiry-fields{padding:16px}.enquiry-submit .button{width:100%}}
+.enquiry-response{font:400 18px/27px var(--sans);margin-bottom:24px}
+.consultation-hero aside .service-checklist{gap:20px}

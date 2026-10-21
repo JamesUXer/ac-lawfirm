@@ -1,0 +1,68 @@
+[
+  {
+    "articleTitle": "Estate Planning",
+    "slug": "estate-planning",
+    "iconIndex": 0,
+    "summary": "Explore wills, trusts, powers of attorney and medical directives, and when to create or update an estate plan.",
+    "featured": false,
+    "sourceDocument": "Website Article Pages  (2).pdf",
+    "sourcePages": [
+      1,
+      2,
+      3
+    ]
+  },
+  {
+    "slug": "probate-trust-administration",
+    "iconIndex": 1,
+    "summary": "Understand probate, trust administration and the responsibilities of personal representatives and trustees.",
+    "articleTitle": "Probate & Trust Administration",
+    "featured": true,
+    "sourceDocument": "Website Article Pages  (2).pdf",
+    "sourcePages": [
+      4,
+      5,
+      6,
+      7
+    ]
+  },
+  {
+    "articleTitle": "Guardianships",
+    "slug": "guardianships",
+    "iconIndex": 2,
+    "summary": "Explore guardianship proceedings, personal and property decisions, and responsibilities after appointment.",
+    "featured": false,
+    "sourceDocument": "Website Article Pages  (1).pdf",
+    "sourcePages": [
+      14,
+      15,
+      16
+    ]
+  },
+  {
+    "slug": "business-trademark-services",
+    "iconIndex": 3,
+    "summary": "Explore business formation, trademark protection and the difference between a business name, an LLC and a trademark.",
+    "articleTitle": "Business & Trademark Services",
+    "featured": true,
+    "sourceDocument": "Website Article Pages  (1).pdf",
+    "sourcePages": [
+      8,
+      9,
+      10
+    ]
+  },
+  {
+    "articleTitle": "Marital Agreements",
+    "slug": "marital-agreements",
+    "iconIndex": 4,
+    "summary": "Learn how prenuptial and postnuptial agreements can address financial responsibilities, property and estate planning.",
+    "featured": false,
+    "sourceDocument": "Website Article Pages  (1).pdf",
+    "sourcePages": [
+      11,
+      12,
+      13
+    ]
+  }
+]
