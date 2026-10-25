@@ -1,0 +1,5 @@
+/* Keep the established four-column footer; group social profiles below Contact. */
+.footer-socials { margin-top: 24px; }
+.footer-social-links { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
+.footer-social-links a { display: inline-flex; align-items: center; gap: 8px; }
+.footer-social-icon { display: block; flex: none; }

@@ -1,0 +1,36 @@
+/* Centre the title and services as one unit, with a 4px title-to-group gap. */
+.practice-strip { height: auto; }
+.practice-strip > .container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  min-height: 0;
+  padding: 8px 24px;
+  gap: 4px;
+}
+.practice-strip > .container > .practice-title { padding: 0; width: auto; flex: none; align-self: center; text-align: left; }
+.practice-links { display: flex; justify-content: center; width: max-content; max-width: 100%; flex: 0 1 auto; }
+.practice-row { display: contents; }
+.practice-strip a { justify-content: center; }
+@media (min-width: 1280px) {
+  .practice-row:first-child a:last-child { border-right: 1px solid var(--gold); }
+}
+@media (min-width: 801px) and (max-width: 1279px) {
+  .practice-links { flex-direction: column; align-items: center; }
+  .practice-row { display: flex; justify-content: center; gap: 24px; width: 100%; }
+}
+@media (max-width: 800px) {
+  .practice-strip > .container { display: grid; grid-template-columns: minmax(0, 1fr); align-items: stretch; padding: 12px var(--gutter); gap: 4px; }
+  .practice-links { display: grid; grid-template-columns: minmax(0, 1fr); width: 100%; gap: 4px; }
+  .practice-strip a {
+    display: grid;
+    grid-template-columns: 40px minmax(0, 1fr);
+    align-items: center;
+    gap: 8px;
+    min-height: 48px;
+    width: 100%;
+    white-space: normal;
+  }
+}

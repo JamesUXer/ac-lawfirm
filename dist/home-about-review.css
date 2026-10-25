@@ -1,0 +1,48 @@
+/* Local Home About photograph review. The portrait remains the original source. */
+#about { background: var(--cream); }
+#about .about-photo { width: 100%; height: 100%; top: 0; right: 0; }
+#about .about-wall-extension {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 200%;
+  height: 100%;
+  object-fit: cover;
+  object-position: left center;
+  transform: none;
+}
+#about .about-original-portrait {
+  position: absolute;
+  top: 0;
+  right: max(0px, calc((100vw - 1280px) / 2));
+  width: auto;
+  height: 100%;
+  object-fit: contain;
+  transform: translateX(20.5%) scaleX(-1);
+  /* Use only the generated alpha channel; all portrait colour pixels are the original photo. */
+  mask-image: url('assets/about-white-blazer-alpha-mask.png');
+  mask-mode: alpha;
+  mask-size: 100% 100%;
+  mask-repeat: no-repeat;
+}
+#about .about-photo::after {
+  background: linear-gradient(90deg, var(--cream) calc(50% - 128px), transparent calc(50% + 176px));
+}
+@media (max-width: 1000px) {
+  #about { display: flex; flex-direction: column; padding-bottom: 0; }
+  #about .about-inner { order: 0; }
+  #about .about-copy { width: 100%; min-height: 0; gap: 32px; padding-bottom: 40px; }
+  #about .about-photo { position: relative; order: 1; width: min(100%, 480px); height: auto; aspect-ratio: 758 / 1200; align-self: center; }
+  #about .about-wall-extension { display: none; }
+  #about .about-original-portrait {
+    position: absolute;
+    width: 126.385224%;
+    height: auto;
+    left: 0;
+    right: auto;
+    object-fit: contain;
+    object-position: right top;
+    transform: scaleX(-1);
+    mask-image: none;
+  }
+  #about .about-photo::after { display: none; }
+}

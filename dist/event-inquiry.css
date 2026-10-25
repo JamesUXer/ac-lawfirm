@@ -1,0 +1,16 @@
+/* Event inquiries use the existing consultation form fields and site tokens. */
+.event-hero { background: var(--cream); border-bottom: 1px solid var(--gold); padding-block: 40px 56px; }
+.event-hero .container { display: flex; flex-direction: column; align-items: flex-start; gap: 24px; }
+.event-hero h1 { font-size: 60px; line-height: 72px; }
+.event-hero p { max-width: 720px; font-weight: 500; line-height: 30px; }
+.event-hero .breadcrumbs a { text-decoration: underline; text-underline-offset: 3px; }
+.event-inquiry-section > h2 { margin-bottom: 24px; }
+.event-inquiry-section .enquiry-submit { margin-top: 24px; }
+@media (max-width: 800px) {
+  .event-hero { padding-block: 32px 40px; }
+  .event-hero h1 { font-size: 48px; line-height: 56px; }
+  .event-hero p { font-size: 18px; line-height: 28px; }
+}
+@media (max-width: 600px) {
+  .event-hero h1 { font-size: 44px; line-height: 52px; }
+}

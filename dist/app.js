@@ -45,12 +45,12 @@ if(enquiry){
   phoneRequirement();
   if(!enquiry.reportValidity())return;
   if(deliveryMode()==='preview'){
-   show(status,'Preview checked. No enquiry has been sent. Delivery to Amber still needs to be verified.');
+   show(status,'Preview checked. No inquiry has been sent. Delivery to Amber still needs to be verified.');
    return;
   }
   const testing=deliveryMode()==='delivery-test';
   const payload=new FormData(enquiry);
-  if(testing){payload.set('_subject','[Website delivery test] AC Law Firm consultation enquiry');payload.set('submission_type','Website delivery test');payload.set('message','[Website delivery test]\n'+String(payload.get('message')||''));}
+  if(testing){payload.set('_subject','[Website delivery test] AC Law Firm consultation inquiry');payload.set('submission_type','Website delivery test');payload.set('message','[Website delivery test]\n'+String(payload.get('message')||''));}
   payload.set('name',name.value.trim());
   payload.set('email',String(payload.get('email')).trim());
   submitting=true;submit.disabled=true;submit.textContent='Sending…';enquiry.setAttribute('aria-busy','true');
@@ -59,11 +59,11 @@ if(enquiry){
    const result=await response.json();
    if(!response.ok||result.errors?.length)throw new Error('Submission was not accepted.');
    enquiry.reset();phoneRequirement();
-   show(status,testing?'Formspree accepted your test enquiry. Check the Formspree dashboard and confirm receipt with Amber before enabling normal enquiries.':'Your enquiry was accepted. Amber will review whether the firm can help. This does not confirm a consultation or create an attorney-client relationship.');
+   show(status,testing?'Formspree accepted your test inquiry. Check the Formspree dashboard and confirm receipt with Amber before enabling normal inquiries.':'Your inquiry was accepted. Amber will review whether the firm can help. This does not confirm a consultation or create an attorney-client relationship.');
   }catch{
-   show(error,'We couldn’t confirm that your enquiry was sent. Your details are still here. Please check your connection before trying again, or email Amber using the contact link.');
+   show(error,'We couldn’t confirm that your inquiry was sent. Your details are still here. Please check your connection before trying again, or email Amber using the contact link.');
   }finally{
-   submitting=false;submit.disabled=false;submit.textContent=testing?'Send test enquiry →':'Send enquiry →';enquiry.removeAttribute('aria-busy');
+   submitting=false;submit.disabled=false;submit.textContent=testing?'Send test inquiry →':'Send inquiry →';enquiry.removeAttribute('aria-busy');
   }
  });
  // The inactive HTML form cannot submit if JavaScript fails or is unavailable.

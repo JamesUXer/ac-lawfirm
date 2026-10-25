@@ -1,5 +1,8 @@
 .consultation-hero{background:var(--cream);padding-block:40px 80px;border-bottom:1px solid var(--gold)}
 .consultation-hero .breadcrumbs{margin-bottom:24px}
+.enquiry-sidebar .contact-links a{display:flex;align-items:flex-start;gap:8px}
+.enquiry-sidebar .contact-links svg{display:block;flex:none;margin-top:5px}
+.enquiry-sidebar .contact-links a>span{min-width:0}
 .consultation-hero .breadcrumbs a{text-decoration:underline;text-underline-offset:3px}
 .consultation-hero-grid{display:grid;grid-template-columns:minmax(0,1fr) 16px 318px;gap:40px;align-items:stretch}
 .consultation-hero-grid>div{display:flex;flex-direction:column;justify-content:space-between;gap:40px}

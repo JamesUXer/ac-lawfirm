@@ -2,5 +2,18 @@
   "contactEmail": "amber@aclaw-firm.com",
   "formEndpoint": "https://formspree.io/f/mdeargbg",
   "formDeliveryVerified": true,
-  "formDeliveryTest": false
+  "formDeliveryTest": false,
+  "contactPhone": "(917) 295-2511",
+  "contactPhoneHref": "tel:+19172952511",
+  "socialLinks": [
+    {
+      "label": "Instagram: @aclawfirmllc",
+      "url": "https://www.instagram.com/aclawfirmllc/"
+    },
+    {
+      "label": "LinkedIn: Amber Green",
+      "url": "https://www.linkedin.com/in/amber-green-esq-208500132"
+    }
+  ],
+  "eventInquiryEnabled": true
 }

@@ -46,3 +46,9 @@ body{font-optical-sizing:none}.probate{position:relative;display:block}.probate>
 .seminar-copy p{font:500 20px/30px var(--sans)}
 @media(max-width:800px){.trust-row{gap:24px}.trust-row>img:first-child{width:80px;height:80px}.trust-row>img:last-child{width:130px;height:80px}.experience span{font-size:52px;line-height:72px}.experience p{font-size:14px;line-height:24px}}
 @media(max-width:600px){.trust-row{flex-wrap:wrap;justify-content:space-around}.trust-row>img:first-child{width:70px;height:70px}.trust-row>img:last-child{width:110px;height:70px}.experience{width:100%;order:3}.seminar-copy p{font-size:18px;line-height:28px}}
+
+/* Keep the homepage service options clear for pointer and keyboard users. */
+.services .service-outer:is(:hover,:focus-visible){text-decoration:none}
+.services .service-outer:is(:hover,:focus-visible) .service-card{background:var(--tan);border-color:var(--navy)}
+.services .service-outer:is(:hover,:focus-visible) .service-card hr{border-color:var(--navy)}
+.contact-links{display:flex;flex-direction:column;gap:8px}
