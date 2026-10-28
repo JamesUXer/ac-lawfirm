@@ -1,0 +1,48 @@
+/* Coordinated content swap, stationary service cards and shared navigation motion. */
+.service-reveal .service-card { transition: background-color 260ms ease-out, border-color 260ms ease-out; }
+.service-card-front { opacity: 1; transition: opacity 110ms ease-out 100ms; }
+.service-card-back { background: transparent; border-color: transparent; transition: opacity 150ms ease-out, visibility 0s linear 150ms; }
+.services .service-reveal:focus-visible .service-card { background: #ebe1d0; border-color: var(--gold); }
+.service-reveal:focus-visible .service-card-front { opacity: 0; transition-delay: 0s; }
+.service-reveal:focus-visible .service-card-back { transition: opacity 180ms cubic-bezier(.16,1,.3,1) 90ms, visibility 0s; }
+.service-hover-cta, .services-dropdown a, .nav-link, .menu-toggle { transition: background-color 180ms ease-out, color 180ms ease-out, border-color 180ms ease-out; }
+@media (hover: hover) and (pointer: fine) {
+ .services .service-reveal:hover .service-card { background: #ebe1d0; border-color: var(--gold); }
+ .service-reveal:hover .service-card-front { opacity: 0; transition-delay: 0s; }
+ .service-reveal:hover .service-card-back { transition: opacity 180ms cubic-bezier(.16,1,.3,1) 90ms, visibility 0s; }
+}
+@media (max-width:800px) {
+ .site-header nav[data-motion-ready] { display:flex; flex-direction:column; opacity:0; visibility:hidden; pointer-events:none; transform:translateY(-6px); transition:opacity 150ms ease-out, transform 150ms ease-out, visibility 0s linear 150ms; }
+ .site-header nav[data-motion-ready][data-open] { opacity:1; visibility:visible; pointer-events:auto; transform:none; transition:opacity 240ms cubic-bezier(.16,1,.3,1), transform 240ms cubic-bezier(.16,1,.3,1), visibility 0s; }
+}
+@media (prefers-reduced-motion:reduce) {
+ .service-card-front, .service-card-back, .site-header nav[data-motion-ready] { transition:none; transform:none; }
+}
+
+.services-chevron { transition: transform 200ms cubic-bezier(.16,1,.3,1); }
+/* Size button padding against the card, rather than the whole viewport. */
+.service-reveal .service-card { container-type: inline-size; }
+@container (max-width: 310px) {
+ .service-hover-cta { padding-inline: 8px; }
+}
+/* Switch to two columns before the longest label becomes cramped. */
+@media (min-width: 701px) and (max-width: 1024px) {
+ .services .service-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 700px) {
+ .services .service-grid { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* Brand hover feedback: gold surface and navy monogram. */
+.site-header .logo { color: var(--gold); transition: background-color 180ms ease-out, color 180ms ease-out, border-color 180ms ease-out; }
+.site-header .logo:is(:hover, :focus-visible) { background: var(--gold); color: var(--navy); border-color: var(--gold); text-decoration: none; }
+
+/* Both states use the exact alpha silhouette from the supplied logo. */
+.site-header .logo-mark {
+ display: block;
+ width: 42px;
+ height: 28px;
+ background-color: currentColor;
+ -webkit-mask: url('assets/ac-monogram-original.png') center / contain no-repeat;
+ mask: url('assets/ac-monogram-original.png') center / contain no-repeat;
+}
