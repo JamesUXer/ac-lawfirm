@@ -39,9 +39,9 @@ const serviceUI=serviceTemplates({asset,esc,label,primary,secondary,banner,servi
 const practiceStrip=()=>`<div class="practice-strip"><div class="container"><span class="practice-title">Practice Areas:</span><div class="practice-links">${[services.slice(0,3),services.slice(3,5)].map((row,r)=>`<div class="practice-row">${row.map((x,i)=>`<a href="/services/${x.slug}/">${icon(r?i+3:i)}<span>${esc(x.label)}</span></a>`).join('')}</div>`).join('')}</div></div></div>`;
 const home=()=>{
  const serviceHovers=[
-  ['Wills, trusts, powers of attorney and medical directives','View estate planning →'],
+  ['Wills, trusts, powers of attorney and medical directives','Explore estate planning →'],
   ['Probate and trust administration','Get probate help →'],
-  ['Adult and minor guardianships.','View guardianships →'],
+  ['Adult and minor guardianships.','Explore guardianships →'],
   ['Business formation and trademark registration','View business services →'],
   ['Prenuptial and postnuptial agreements','View marital agreements →'],
   ['Answer a few simple questions or contact Amber directly.','Help me choose →']
