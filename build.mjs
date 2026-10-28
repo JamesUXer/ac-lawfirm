@@ -39,11 +39,11 @@ const serviceUI=serviceTemplates({asset,esc,label,primary,secondary,banner,servi
 const practiceStrip=()=>`<div class="practice-strip"><div class="container"><span class="practice-title">Practice Areas:</span><div class="practice-links">${[services.slice(0,3),services.slice(3,5)].map((row,r)=>`<div class="practice-row">${row.map((x,i)=>`<a href="/services/${x.slug}/">${icon(r?i+3:i)}<span>${esc(x.label)}</span></a>`).join('')}</div>`).join('')}</div></div></div>`;
 const home=()=>{
  const serviceHovers=[
-  ['Wills, trusts, powers of attorney and medical directives','Explore estate planning →'],
+  ['Wills, trusts, powers of attorney and medical directives','View estate planning →'],
   ['Probate and trust administration','Get probate help →'],
-  ['Adult and minor guardianships.','Explore guardianships →'],
-  ['Business formation and trademark registration','Explore business services →'],
-  ['Prenuptial and postnuptial agreements','Explore marital agreements →'],
+  ['Adult and minor guardianships.','View guardianships →'],
+  ['Business formation and trademark registration','View business services →'],
+  ['Prenuptial and postnuptial agreements','View marital agreements →'],
   ['Answer a few simple questions or contact Amber directly.','Help me choose →']
  ];
  const serviceTitles=['Plan for your family’s future','Deal with an estate after a loss','Protect someone who needs support','Protect your business and brand','Protect assets within marriage','Not sure where to start?'];
