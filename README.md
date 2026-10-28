@@ -24,3 +24,7 @@ The initial migration retains `noindex,nofollow` while final content is reviewed
 A custom domain is configured separately after the initial deployment is checked. Preserve existing email DNS records when connecting the domain. No CNAME file is included yet.
 
 Fonts are served locally. Font licences are in `dist/assets/`.
+
+## Browser icons and link previews
+
+The supplied logo is preserved in `branding/ac-law-logo-original.png`. To regenerate the committed browser icons and 1200 × 630 sharing image, run `python3 branding/prepare-icons.py` with Pillow installed, then `node build.mjs`. The normal deployment uses the committed images and does not require Python. Each generated page includes browser icons and Open Graph/Twitter metadata, with its own title, description and production URL.

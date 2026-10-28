@@ -71,7 +71,12 @@ function relativeUrl(route,href){
 function write(route,html){
  const destination=path.join(root,'dist',route,'index.html');
  fs.mkdirSync(path.dirname(destination),{recursive:true});
- const portable=html.replace(/\b(href|src)="(\/(?!\/)[^"]*)"/g,(_,attribute,href)=>`${attribute}="${relativeUrl(route,href)}"`);
+ const pageTitle=html.match(/<title>(.*?)<\/title>/)?.[1]||'AC Law Firm';
+ const pageDescription=html.match(/<meta name="description" content="([^"]*)"/)?.[1]||'Legal guidance for family, assets, business and future.';
+ const pageUrl=`https://aclaw-firm.com/${route?route+'/':''}`;
+ const shareImage='https://aclaw-firm.com/assets/ac-law-share.png';
+ const metadata=`<link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48"><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png"><link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><meta property="og:type" content="website"><meta property="og:site_name" content="AC Law Firm"><meta property="og:title" content="${pageTitle}"><meta property="og:description" content="${pageDescription}"><meta property="og:url" content="${pageUrl}"><meta property="og:image" content="${shareImage}"><meta property="og:image:type" content="image/png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="AC Law Firm logo on a cream background"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${pageTitle}"><meta name="twitter:description" content="${pageDescription}"><meta name="twitter:image" content="${shareImage}"><meta name="twitter:image:alt" content="AC Law Firm logo on a cream background">`;
+ const portable=html.replace('</head>',metadata+'</head>').replace(/\b(href|src)="(\/(?!\/)[^"]*)"/g,(_,attribute,href)=>`${attribute}="${relativeUrl(route,href)}"`);
  fs.writeFileSync(destination,portable);
 }
 function legacyRedirect(route,target){
